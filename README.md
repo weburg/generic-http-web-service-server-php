@@ -6,18 +6,42 @@ Early initial setup
 
 ### Linux / Ubuntu server setup
 
+#### Install Apache and PHP (doesn't include CLI or debug)
+
 sudo apt install apache2
-sudo apt install php libapache2-mod-php
+sudo apt install php libapache2-mod-php php-cli php-xml php-mbstring
+(the latter two are required by PHPUnit)
 
-chown and chmod /var/www/html so local user can write to it.
+To test, create phpinfo.php file with contents <?php phpinfo() ?> in /var/www/html and go to http://localhost/phpinfo.php. Then delete the file.
 
-Create test.php file with contents <?php phpinfo(); ?> in /var/www/html and go to http://localhost/test.php
+#### Configure
 
+For development and portability, enable .htaccess. Alternately, add .htaccess config to the Apache config file.
 Edit /etc/apache2/apache2.conf so that <Directory /var/www> sets AllowOverride All
+
+Enable mod_rewrite to route all requests
+sudo a2enmod rewrite
+
 sudo systemctl reload apache2
+
+Prepare for deployment
+
+chown and chmod /var/www so local user can write to it.
+
+Add /var/www/php to php.ini's include_path. Do for both CLI and Apache:
+/etc/php/8.1/cli/php.ini
+/etc/php/8.1/apache2/php.ini
 
 ### IDE (PhpStorm) setup
 
+Add [project_root]/php to IDE's Include Path list.
+
 Configure Servers to have localhost
 
-Configure Deployment to copy local project root to localhost in /var/www/html under generichttpws
+Configure Deployment to:
+- copy public project folder to localhost in /var/www/html
+- copy php project folder to localhost in /var/www/html
+
+Set upload to Automatic for rapid and seamless development.
+
+Install Composer (preferably globally). Install packages.
