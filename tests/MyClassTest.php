@@ -11,3 +11,4 @@ class MyClassTest extends TestCase
         $this->assertEquals("What", $myClass->giveWhat());
     }
 }
+?>

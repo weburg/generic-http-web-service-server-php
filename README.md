@@ -2,14 +2,14 @@
 
 ## An example server providing the Web service and an HTML-only static client
 
-Early initial setup
+Simple MVC architecture where controllers are in public/, views are in php/views/, and the model is whatever is needed, kept in php/.
 
 ### Linux / Ubuntu server setup
 
-#### Install Apache and PHP (doesn't include CLI or debug)
+#### Install Apache and PHP
 
 sudo apt install apache2
-sudo apt install php libapache2-mod-php php-cli php-xml php-mbstring
+sudo apt install php libapache2-mod-php php-cli php-xdebug php-curl php-xml php-mbstring
 (the latter two are required by PHPUnit)
 
 To test, create phpinfo.php file with contents <?php phpinfo() ?> in /var/www/html and go to http://localhost/phpinfo.php. Then delete the file.
@@ -40,7 +40,7 @@ Configure Servers to have localhost
 
 Configure Deployment to:
 - copy public project folder to localhost in /var/www/html
-- copy php project folder to localhost in /var/www/html
+- copy php project folder to localhost in /var/www/php
 
 Set upload to Automatic for rapid and seamless development.
 
