@@ -2,6 +2,11 @@ Options -Indexes
 DirectoryIndex index.php index.html
 
 RewriteEngine on
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /var/www/html/index.php
+RewriteRule ^(.*)generichttpws(.*)$ /var/www/html/generichttpws/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /var/www/html/index.php [L]
