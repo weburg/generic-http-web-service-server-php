@@ -48,3 +48,13 @@ Configure Deployment to:
 Set upload to Automatic for rapid and seamless development.
 
 Install Composer (preferably globally). Install packages.
+
+### Running the tests
+
+To run unit tests only:
+
+`phpunit`
+
+To run unit and integration tests:
+
+`phpunit --testsuite unit,integration`
