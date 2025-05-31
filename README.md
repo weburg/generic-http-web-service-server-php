@@ -2,9 +2,19 @@
 
 ## An example server providing the Web service and an HTML-only static client
 
+> [!NOTE]
+> This is a work in progress to bring a GHoWSt PHP server library up to parity with the Java version. Refer to the Java version until this note is removed.
+
+> [!CAUTION]
+> This server and its code isn't meant to run in a production or otherwise
+> public environment, as it lacks enough error checking and restrictions to be
+> safe. It's meant to run locally for prototyping and example purposes only.
+
 Simple MVC architecture where controllers are in public/, views are in php/views/, and the model is whatever is needed, kept in php/.
 
 Routing is done through a combination of rewrites and controller logic. Path parameters are not used. Query string and URI parsing are done as needed.
+
+
 
 ### Linux / Ubuntu server setup
 
