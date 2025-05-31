@@ -4,6 +4,6 @@
   },
   "scripts": {
     "test": "phpunit",
-    "verify": "phpunit --testsuit unit,integration"
+    "verify": "phpunit --testsuite unit,integration"
   }
 }
