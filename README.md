@@ -63,8 +63,8 @@ Install Composer (preferably globally). Install packages.
 
 To run unit tests only:
 
-`phpunit`
+`composer run-script test`
 
 To run unit and integration tests:
 
-`phpunit --testsuite unit,integration`
+`composer run-script verify`
