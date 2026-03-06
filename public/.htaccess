@@ -5,8 +5,8 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)generichttpws(.*)$ /var/www/html/generichttpws/index.php [L]
+RewriteRule ^(.*)generichttpws(.*)$ %{DocumentRoot}/generichttpws/index.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /var/www/html/index.php [L]
+RewriteRule ^(.*)$ %{DocumentRoot}/index.php [L]
