@@ -7,7 +7,7 @@ class MyServerTest extends TestCase {
     public function testServer() {
         $handle = curl_init();
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($handle, CURLOPT_URL, "http://localhost/generichttpws/");
+        curl_setopt($handle, CURLOPT_URL, "http://localhost:8081/generichttpws/");
 
         $result = curl_exec($handle);
 
