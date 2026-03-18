@@ -135,4 +135,6 @@ To run unit tests only:
 
 To run unit and integration tests:
 
+First, ensure the Apache server is running, then:
+
 `composer run-script verify`
