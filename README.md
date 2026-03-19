@@ -36,9 +36,12 @@ instructions for more information)
 Enable mod_rewrite to route all requests:
 `sudo a2enmod rewrite`
 
-Add `<project root>/php` to php.ini's include_path. Do for both CLI and Apache:
-- `/etc/php/8.1/cli/php.ini`
+Add `<project root>/php` to php.ini's include_path:
 - `/etc/php/8.1/apache2/php.ini`
+
+Running tests already uses its own bootstrap file to add it to the include path,
+but you can add it to the CLI as well if you want:
+- `/etc/php/8.1/cli/php.ini`
 
 Add `xdebug.mode=debug` at the end of `/etc/php/8.1/apache2/php.ini` to enable
 remote debugging.
