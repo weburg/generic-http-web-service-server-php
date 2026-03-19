@@ -1,6 +1,5 @@
 <?php
 $pageTitle = "Home";
-$date = new DateTime();
 ?>
 
 <?php include "views/header.php" ?>
@@ -11,8 +10,8 @@ $date = new DateTime();
 
 <h3>Depend Upon Existing Technology Stack</h3>
 
-<p>The time is <?= $date->format(DateTime::ISO8601_EXPANDED) ?>. <?= $nameFun ?>.</p>
+<p>The time is <?= $date->format(DateTime::ISO8601_EXPANDED) ?>. <?= myFunction("PHP") ?>.</p>
 
-<p>Request URI: <?= $_SERVER["REQUEST_URI"] ?></p>
+<p>Request URI: <?= $requestUri ?></p>
 
 <?php include "views/footer.php" ?>

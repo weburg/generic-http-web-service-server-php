@@ -108,8 +108,9 @@ Listen 8081
 
 ### IDE setup (PhpStorm) and final steps
 
-Add <project root>/php to IDE's Include Path list (right click php folder, then
-select Mark Directory As -> Sources Root)
+Add <project root>/php to IDE's Include Path list (Settings -> PHP -> Include Path)
+
+Mark directories as you wish, e.g. Sources Root, Templates, Test Sources, etc. (right click desired folder, then select Mark Directory As)
 
 Configure Servers to have a localhost server and set the port to 8081. Set the
 debugger to Xdebug.
