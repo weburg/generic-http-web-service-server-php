@@ -10,8 +10,7 @@ $pageTitle = "Home";
 
 <h3>Depend Upon Existing Technology Stack</h3>
 
-<p>The time is <?= $date->format('Y-m-d\TH:i:s.v\Z');
-    ?>. <?= myFunction("PHP") ?>.</p>
+<p>The time is <?= $date->format('Y-m-d\TH:i:s.v\Z') ?>. <?= myFunction("PHP") ?>.</p>
 
 <p>Request URI: <?= $requestUri ?></p>
 
