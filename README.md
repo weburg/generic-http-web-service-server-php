@@ -21,7 +21,31 @@ added in front. If that's not enough, then use of other approaches can be
 considered, as well as moving the rewrites used in .htaccess files into the
 server configuration.
 
-### Linux setup (Debian/Ubuntu example)
+#### Create the virtual host file ####
+
+For Windows, in Apache's conf/extra/httpd-vhosts.conf, comment out the default virtual
+hosts entries and add the below to the bottom of the file, substituting for
+your project root absolute path.
+
+For Linux (Ubuntu), add the below to /etc/apache2/sites-available/ghowst-duets.conf
+
+```
+Define GHOWSTROOT "<project root>"
+
+<Directory "${GHOWSTROOT}/public">
+	Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+</Directory>
+
+Listen 8081
+
+<VirtualHost *:8081>
+    DocumentRoot "${GHOWSTROOT}/public"
+</VirtualHost>
+```
+
+### Linux setup (Ubuntu)
 
 #### Install Apache and PHP
 
@@ -45,6 +69,17 @@ but you can add it to the CLI as well if you want:
 
 Add `xdebug.mode=debug` at the end of `/etc/php/8.1/apache2/php.ini` to enable
 remote debugging.
+
+Enable the virtual host file:
+`sudo a2ensite ghowst-duets.conf`
+
+Make sure permissions on the <project root> folder and its subfolders are set to
+755 and that files are set to 644 if Apache can't serve it. In addition, make
+sure that every directory preceding the <project path> has the execute bit set
+for at least the www-data user. For example, if running the site from your user
+home directory, you can change your home directory group to www-data and give
+group execute permission, e.g. 750. Otherwise, Apache won't be able to traverse
+into any subdirectories.
 
 ### Windows setup
 
@@ -82,33 +117,12 @@ the Apache httpd.conf:
 
 Add `<project root>\php` to php.ini's include_path.
 
-### Final Apache configuration (all platforms)
-
 In the Apache httpd.conf:
 - Uncomment the Virtual hosts Include:
   ```
   # Virtual hosts
   Include conf/extra/httpd-vhosts.conf
-
-In Apache's conf/extra/httpd-vhosts.conf, comment out the default virtual
-hosts entries and add the following to the bottom of the file, substituting for
-your project root absolute path:
-```
-Define GHOWSTROOT "<project root>"
-
-<Directory "${GHOWSTROOT}/public">
-	Options Indexes FollowSymLinks
-	AllowOverride All
-	Require all granted
-</Directory>
-
-Listen 8081
-
-<VirtualHost *:8081>
-    DocumentRoot "${GHOWSTROOT}/public"
-</VirtualHost>
-```
-
+  
 ### IDE setup (PhpStorm) and final steps
 
 Add <project root>/php to IDE's Include Path list (Settings -> PHP -> Include Path)
@@ -120,16 +134,17 @@ debugger to Xdebug.
 
 Install Composer (preferably globally). Install packages.
 
-Start (or restart) Apache. In Windows, you can choose to run in on the command
+Start (or reload) Apache. In Windows, you can choose to run in on the command
 line, as an external tool in your IDE, or as service. Consult the documentation
-for how to operate Apache.
+for operating Apache. In Linux (Ubuntu), run 'sudo systemctl reload apache2'
 
 Now test the deployed application by going to http://localhost:8081 and make
 sure everything works.
 
-In Linux, as well as Windows, if port 8081 isn't working, it might be blocked by
-a firewall. Check the documentation or online for help. Verify that at least
-http://localhost is working and check the Apache error log for any errors.
+In Linux (Ubuntu), as well as Windows, if port 8081 isn't working, it might be
+blocked by a firewall. Check the documentation or online for help. Verify that
+at least http://localhost is working and check the Apache error log for any
+errors.
 
 ### Running the tests
 
