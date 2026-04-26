@@ -73,9 +73,9 @@ remote debugging.
 Enable the virtual host file:
 `sudo a2ensite ghowst-duets.conf`
 
-Make sure permissions on the <project root> folder and its subfolders are set to
+Make sure permissions on the project root folder and its subfolders are set to
 755 and that files are set to 644 if Apache can't serve it. In addition, make
-sure that every directory preceding the <project path> has the execute bit set
+sure that every directory preceding the project path has the execute bit set
 for at least the www-data user. For example, if running the site from your user
 home directory, you can change your home directory group to www-data and give
 group execute permission, e.g. 750. Otherwise, Apache won't be able to traverse
