@@ -91,7 +91,7 @@ In the Apache httpd.conf:
   Include conf/extra/httpd-vhosts.conf
 
 In Apache's conf/extra/httpd-vhosts.conf, comment out the default virtual
-hosts entires and add the following to the bottom of the file, substituting for
+hosts entries and add the following to the bottom of the file, substituting for
 your project root absolute path:
 ```
 Define GHOWSTROOT "<project root>"
