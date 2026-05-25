@@ -1,4 +1,8 @@
 <?php
+require_once "arg.php";
+
+$date = arg("date", new DateTime("2024/02/02T01:01", new DateTimeZone("UTC")));
+$requestUri = arg("requestUri");
 $pageTitle = "Home";
 ?>
 
