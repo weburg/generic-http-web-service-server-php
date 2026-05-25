@@ -1,7 +1,9 @@
 <?php
+require_once "example/domain/Omnibus.php";
 require_once "weburg/ghowst/HttpWebServiceHandler.php";
 require_once "weburg/ghowst/HttpWebServiceMapper.php";
 
+use example\domain\Omnibus;
 use weburg\ghowst\HttpWebServiceHandler;
 use weburg\ghowst\HttpWebServiceMapper;
 
@@ -9,6 +11,24 @@ use weburg\ghowst\HttpWebServiceMapper;
 
 if (str_contains($_SERVER["REQUEST_URI"], "engines")) {
     include "views/generichttpws/engines.php";
+    exit();
+}
+
+if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
+    $omnibus = new Omnibus();
+    $omnibus->birthtime = new DateTime("2016-05-11T12:00:00.000");
+    $omnibus->sendtime = new DateTime();
+    $omnibus->toppings = ["Cheese", "Pepperoni", "Sausage"];
+    $omnibus->sides = ["Fries", "Onion Rings"];
+    $omnibus->isOnFire = false;
+    $omnibus->document = null;
+    $omnibus->pairing = [
+        "Steak" => "Cabernet Sauvignon",
+        "Fish" => "Chardonnay",
+    ];
+
+    echo json_encode($omnibus);
+
     exit();
 }
 
