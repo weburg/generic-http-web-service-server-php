@@ -10,7 +10,7 @@ class Omnibus {
     public ?DateTime $sendtime = null;
     public array $toppings = [];
     public array $sides = [];
-    public bool $isOnFire = false;
+    public bool $onFire = false;
     public ?\CURLFile $document = null;
     public array $pairing = [];
 }

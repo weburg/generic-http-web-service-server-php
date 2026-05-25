@@ -20,7 +20,7 @@ if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
     $omnibus->sendtime = new DateTime();
     $omnibus->toppings = ["Cheese", "Pepperoni", "Sausage"];
     $omnibus->sides = ["Fries", "Onion Rings"];
-    $omnibus->isOnFire = false;
+    $omnibus->onFire = false;
     $omnibus->document = null;
     $omnibus->pairing = [
         "Steak" => "Cabernet Sauvignon",
