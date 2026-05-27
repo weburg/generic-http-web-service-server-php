@@ -8,8 +8,8 @@
 > This is a work in progress to bring a GHoWSt PHP server library up to parity
 > with the Java version. Refer to the Java version until this note is removed.
 
-Simple MVC architecture where controllers are in public/, views in php/views/,
-and the model is whatever is needed, kept in php/. Routing is done through a
+Simple MVC architecture where controllers are in public/, views in php/example/views/,
+and the model is whatever is needed, kept in php/example/domain. Routing is done through a
 combination of Web server rewrites and controller logic.
 
 ### General setup
