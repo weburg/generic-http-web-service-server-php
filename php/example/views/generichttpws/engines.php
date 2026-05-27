@@ -2,7 +2,7 @@
 $pageTitle = "Generic HTTP Web Service - Engines";
 ?>
 
-<?php include "views/header.php" ?>
+<?php include "example/views/header.php" ?>
 
 <p>This is where Engines will be listed eventually.</p>
 
@@ -10,4 +10,4 @@ $pageTitle = "Generic HTTP Web Service - Engines";
 
 <p>Request URI: <?= $_SERVER["REQUEST_URI"] ?></p>
 
-<?php include "views/footer.php" ?>
+<?php include "example/views/footer.php" ?>

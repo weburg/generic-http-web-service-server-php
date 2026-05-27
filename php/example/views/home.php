@@ -6,7 +6,7 @@ $requestUri = arg("requestUri");
 $pageTitle = "Home";
 ?>
 
-<?php include "views/header.php" ?>
+<?php include "example/views/header.php" ?>
 
 <h2>GHoWSt DUETS</h2>
 
@@ -18,4 +18,4 @@ $pageTitle = "Home";
 
 <p>Request URI: <?= $requestUri ?></p>
 
-<?php include "views/footer.php" ?>
+<?php include "example/views/footer.php" ?>

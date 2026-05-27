@@ -10,7 +10,7 @@ use weburg\ghowst\HttpWebServiceMapper;
 // Front-controller for the web service
 
 if (str_contains($_SERVER["REQUEST_URI"], "engines")) {
-    include "views/generichttpws/engines.php";
+    include "example/views/generichttpws/engines.php";
     exit();
 }
 
@@ -32,7 +32,7 @@ if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
     exit();
 }
 
-include "views/generichttpws/home.php";
+include "example/views/generichttpws/home.php";
 
 /*
 $webService = new stdClass();

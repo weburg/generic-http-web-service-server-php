@@ -6,5 +6,5 @@ require_once "myFunction.php";
 // Do any routing or dynamic stuff here
 $date = new DateTime("now", new DateTimeZone("UTC"));
 $requestUri = $_SERVER["REQUEST_URI"];
-include "views/home.php";
+include "example/views/home.php";
 ?>
