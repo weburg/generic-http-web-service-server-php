@@ -49,6 +49,8 @@ Listen 8081
 
 #### Install Apache and PHP
 
+PHP 8.1 or better is recommended.
+
 Run:
 `sudo apt install apache2`
 `sudo apt install php libapache2-mod-php php-cli php-xdebug php-curl php-xml php-mbstring`
@@ -84,6 +86,8 @@ into any subdirectories.
 ### Windows setup
 
 #### Install Apache and PHP
+
+PHP 8.1 or better is recommended.
 
 Download Apache2, PHP (thread safe), and Xdebug (match version to PHP). Extract
 to C:\Apache24, C:\php, and C:\php\ext\php_xdebug.dll respectively.
