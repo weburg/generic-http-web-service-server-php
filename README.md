@@ -81,6 +81,13 @@ home directory, you can change your home directory group to www-data and give
 group execute permission, e.g. 750. Otherwise, Apache won't be able to traverse
 into any subdirectories.
 
+#### Start Apache on demand
+
+Disable automatic startup and stop the system service now with:
+`sudo systemctl disable --now apache2`
+
+Refer to IDE steps for running Apache on demand.
+
 ### Windows setup
 
 #### Install Apache and PHP
@@ -134,9 +141,12 @@ debugger to Xdebug.
 
 Install Composer (preferably globally). Install packages.
 
-Start (or reload) Apache. In Windows, you can choose to run in on the command
+Start (or reload) Apache. In Windows, you can choose to run it on the command
 line, as an external tool in your IDE, or as service. Consult the documentation
-for operating Apache. In Linux (Ubuntu), run 'sudo systemctl reload apache2'
+for operating Apache. For Windows, an external tool called Apache2 can be
+started and stopped directly. For Linux (Ubuntu) you should create a Start
+Apache2 and a Stop Apache2 via `sudo systemctl start|stop apache2` to keep
+things simple.
 
 Now test the deployed application by going to http://localhost:8081 and make
 sure everything works.
