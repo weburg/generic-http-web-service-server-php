@@ -1,6 +1,6 @@
 # Generic HTTP Web Service Server in PHP (GHoWSt)
 
-![Logo](http://www.weburg.com/ghowst/images/ghowstlogo.png)
+![Logo](https://www.weburg.com/ghowst/images/ghowstlogo.png)
 
 ## An example server providing the Web service and an HTML-only static client
 
@@ -8,8 +8,8 @@
 > This is a work in progress to bring a GHoWSt PHP server library up to parity
 > with the Java version. Refer to the Java version until this note is removed.
 
-Simple MVC architecture where controllers are in public/, views in php/views/,
-and the model is whatever is needed, kept in php/. Routing is done through a
+Simple MVC architecture where controllers are in public/, views in php/example/views/,
+and the model is whatever is needed, kept in php/example/domain. Routing is done through a
 combination of Web server rewrites and controller logic.
 
 ### General setup
@@ -48,6 +48,8 @@ Listen 8081
 ### Linux setup (Ubuntu)
 
 #### Install Apache and PHP
+
+PHP 8.1 or better is recommended.
 
 Run:
 `sudo apt install apache2`
@@ -91,6 +93,8 @@ Refer to IDE steps for running Apache on demand.
 ### Windows setup
 
 #### Install Apache and PHP
+
+PHP 8.1 or better is recommended.
 
 Download Apache2, PHP (thread safe), and Xdebug (match version to PHP). Extract
 to C:\Apache24, C:\php, and C:\php\ext\php_xdebug.dll respectively.

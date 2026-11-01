@@ -1,3 +1,9 @@
+<?php
+require_once "arg.php";
+
+$pageTitle = arg("");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
