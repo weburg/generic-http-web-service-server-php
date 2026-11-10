@@ -1,7 +1,7 @@
 <?php
 require_once "arg.php";
 
-$pageTitle = arg("");
+$pageTitle = arg("pageTitle");
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $pageTitle = arg("");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $pageTitle ?></title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
 
