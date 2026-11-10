@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__) . '/bootstrap.php';
 require_once "myFunction.php";
 
 // This is a simple front-controller for the root of the site

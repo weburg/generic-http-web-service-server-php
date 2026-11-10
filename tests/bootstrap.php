@@ -1,3 +1,3 @@
 <?php
-set_include_path(get_include_path() . PATH_SEPARATOR . "php/");
+require_once dirname(__DIR__) . '/bootstrap.php';
 ?>

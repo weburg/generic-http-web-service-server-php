@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__, 2) . '/bootstrap.php';
 require_once "example/domain/Omnibus.php";
 require_once "weburg/ghowst/HttpWebServiceHandler.php";
 require_once "weburg/ghowst/HttpWebServiceMapper.php";
