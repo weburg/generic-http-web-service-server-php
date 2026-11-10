@@ -62,13 +62,6 @@ instructions for more information)
 Enable mod_rewrite to route all requests:
 `sudo a2enmod rewrite`
 
-Add `<project root>/php` to php.ini's include_path:
-- `/etc/php/8.1/apache2/php.ini`
-
-Running tests already uses its own bootstrap file to add it to the include path,
-but you can add it to the CLI as well if you want:
-- `/etc/php/8.1/cli/php.ini`
-
 Add `xdebug.mode=debug` at the end of `/etc/php/8.1/apache2/php.ini` to enable
 remote debugging.
 
@@ -125,8 +118,6 @@ In C:\Apache24\conf\httpd.conf:
 Enable mod_rewrite to route all requests by uncommenting the below line in
 the Apache httpd.conf:
 `LoadModule rewrite_module modules/mod_rewrite.so`
-
-Add `<project root>\php` to php.ini's include_path.
 
 In the Apache httpd.conf:
 - Uncomment the Virtual hosts Include:

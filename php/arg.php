@@ -21,11 +21,11 @@ $age = arg("age", 0, function (mixed $value): bool {
 */
 
 function arg(string $argName, mixed $default = "", ?callable $validatorFunction = null): mixed {
-    if ($argName !== "" && !isset($GLOBALS[$argName])) {
+    if (!isset($GLOBALS[$argName])) {
         return $default;
     }
 
-    if ($argName !== "" && $validatorFunction !== null && !$validatorFunction($GLOBALS[$argName])) {
+    if ($validatorFunction !== null && !$validatorFunction($GLOBALS[$argName])) {
         return $default;
     }
 
