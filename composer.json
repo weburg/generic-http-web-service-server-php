@@ -1,4 +1,10 @@
 {
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Wren Weburg"
+    }
+  ],
   "require-dev": {
     "phpunit/phpunit": "10.5.46"
   },
