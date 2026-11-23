@@ -7,6 +7,7 @@ require_once "weburg/ghowst/HttpWebServiceMapper.php";
 use example\domain\Omnibus;
 use weburg\ghowst\HttpWebServiceHandler;
 use weburg\ghowst\HttpWebServiceMapper;
+use weburg\ghowst\JsonNormalizer;
 
 // Front-controller for the web service
 
@@ -17,8 +18,8 @@ if (str_contains($_SERVER["REQUEST_URI"], "engines")) {
 
 if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
     $omnibus = new Omnibus();
-    $omnibus->birthtime = new DateTime("2016-05-11T12:00:00.000");
-    $omnibus->sendtime = new DateTime();
+    $omnibus->birthtime = new DateTimeImmutable("2016-05-11T12:00:00.000000");
+    $omnibus->sendtime = new DateTimeImmutable();
     $omnibus->toppings = ["Cheese", "Pepperoni", "Sausage"];
     $omnibus->sides = ["Fries", "Onion Rings"];
     $omnibus->onFire = false;
@@ -28,7 +29,8 @@ if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
         "Fish" => "Chardonnay",
     ];
 
-    echo json_encode($omnibus);
+    header("Content-Type: application/json");
+    echo json_encode(JsonNormalizer::normalize($omnibus));
 
     exit();
 }

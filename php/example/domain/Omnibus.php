@@ -1,13 +1,21 @@
 <?php
 namespace example\domain;
 
-use DateTime;
+require_once "Bus.php";
 
-class Omnibus {
+use DateTimeImmutable;
+use weburg\ghowst\attributes\localdatetime;
+use weburg\ghowst\attributes\offsetdatetime;
+
+class Omnibus extends Bus {
     public function __construct() {}
 
-    public ?DateTime $birthtime = null;
-    public ?DateTime $sendtime = null;
+    #[localdatetime]
+    public ?DateTimeImmutable $birthtime = null;
+
+    #[offsetdatetime]
+    public ?DateTimeImmutable $sendtime = null;
+
     public array $toppings = [];
     public array $sides = [];
     public bool $onFire = false;
