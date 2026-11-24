@@ -8,7 +8,9 @@ use weburg\ghowst\attributes\localdatetime;
 use weburg\ghowst\attributes\offsetdatetime;
 
 class Omnibus extends Bus {
-    public function __construct() {}
+    public function __construct() {
+        Bus::__construct("omni-58-87");
+    }
 
     #[localdatetime]
     public ?DateTimeImmutable $birthtime = null;
