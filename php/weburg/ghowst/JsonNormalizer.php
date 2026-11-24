@@ -32,36 +32,47 @@ final class JsonNormalizer {
     private static function normalizeObject(object $object): array {
         $ref = new \ReflectionObject($object);
         $data = [];
+        $classes = [];
 
-        foreach ($ref->getProperties() as $prop) {
-            $name = $prop->getName();
-            $value = $prop->isInitialized($object) ? $prop->getValue($object) : null;
+        for ($class = $ref; $class !== false; $class = $class->getParentClass()) {
+            $classes[] = $class;
+        }
 
-            // --- Attribute-aware datetime handling ---
-            if ($value instanceof \DateTimeInterface) {
-                $attrs = $prop->getAttributes();
-
-                foreach ($attrs as $attr) {
-                    $attrName = $attr->getName();
-
-                    if ($attrName === localdatetime::class) {
-                        $data[$name] = self::serializeLocalDateTime($value);
-                        continue 2;
-                    }
-
-                    if ($attrName === offsetdatetime::class) {
-                        $data[$name] = self::serializeOffsetDateTime($value);
-                        continue 2;
-                    }
+        foreach (array_reverse($classes) as $class) {
+            foreach ($class->getProperties() as $prop) {
+                if (!$prop->isPublic() || $prop->getDeclaringClass()->getName() !== $class->getName()) {
+                    continue;
                 }
 
-                // No attribute → default to offsetdatetime
-                $data[$name] = self::serializeOffsetDateTime($value);
-                continue;
-            }
-            // -------------------------------------------------------------
+                $name = $prop->getName();
+                $value = $prop->isInitialized($object) ? $prop->getValue($object) : null;
 
-            $data[$name] = self::normalize($value);
+                // --- Attribute-aware datetime handling ---
+                if ($value instanceof \DateTimeInterface) {
+                    $attrs = $prop->getAttributes();
+
+                    foreach ($attrs as $attr) {
+                        $attrName = $attr->getName();
+
+                        if ($attrName === localdatetime::class) {
+                            $data[$name] = self::serializeLocalDateTime($value);
+                            continue 2;
+                        }
+
+                        if ($attrName === offsetdatetime::class) {
+                            $data[$name] = self::serializeOffsetDateTime($value);
+                            continue 2;
+                        }
+                    }
+
+                    // No attribute → default to offsetdatetime
+                    $data[$name] = self::serializeOffsetDateTime($value);
+                    continue;
+                }
+                // -------------------------------------------------------------
+
+                $data[$name] = self::normalize($value);
+            }
         }
 
         return $data;
