@@ -16,7 +16,7 @@ if (str_contains($_SERVER["REQUEST_URI"], "engines")) {
     exit();
 }
 
-if (str_contains($_SERVER["REQUEST_URI"], "omnibus")) {
+if (str_contains($_SERVER["REQUEST_URI"], "omnibusses")) {
     $omnibus = new Omnibus();
     $omnibus->birthtime = new DateTimeImmutable("2016-05-11T12:00:00.000000");
     $omnibus->sendtime = new DateTimeImmutable();
